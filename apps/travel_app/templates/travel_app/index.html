@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 100px;
+    }
+    .top{
+        display: block;
+    }
+</style>
+<body>
+    <div class=top>
+        <h1>Welcome! Let's travel!</h1>
+    </div>
+    <div>
+        <form action="reggy" method="POST">
+            <h1>Registration</h1>
+            {% csrf_token %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <h3>First Name</h3>
+            <input type="text" name="first_name">
+            <h3>Last Name</h3>
+            <input type="text" name="last_name">
+            <h3>Email</h3>
+            <input type="text" name="email">
+            <h3>Password</h3>
+            <input type="password" name="password">
+            <h3>Confirm Password</h3>
+            <input type="password" name="cpassword">
+            <p> <button>Create User</button></p>
+        </form>
+    </div>
+    <div>
+        <h1>Login</h1>
+        <form action="login" method="POST">
+            {% csrf_token %}
+            <h3>Email Address</h3>
+            <input type="text" name="email">
+            <h3>Password</h3>
+            <input type="password" name="password">
+            <button>Sign In</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Your Trip</title>
+</head>
+<body>
+    <div>
+        <h1>Hello {{trip_info.user_id}}! Let's edit your trip!</h1>
+        <a href="/logout">Logout</a>
+    </div>
+    <div>
+        <form action="/update/{{trip_info.id}}" method="POST">
+            {% csrf_token %}
+            <h3>Destination</h3>
+            <input type="text" name="u_destination" value="{{trip_info.destination}}">
+            <h3>Start Date</h3>
+            <input type="date" name="update_start" value="{{trip_info.start_date}}">
+            <h3>End Date</h3>
+            <input type="date" name="update_end" value="{{trip_info.end_date}}">
+            <h3>Plan:</h3>
+            <textarea name="update_description" cols="30" rows="10">{{trip_info.plan}}</textarea>
+            <button>Update</button>
+        </form>
+    </div>
+</body>
+</html>

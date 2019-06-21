@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Trip</title>
+</head>
+<body>
+    <div>
+        <h1>Hello {{trip_info.user.first_name}}! Read about this trip!</h1>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <div>
+        <h3>{{trip_info.destination}}</h3>
+        <div>
+            <h3>Start Date: {{trip_info.start_date}}</h3>
+            <h3>End Date: {{trip_info.end_date}}</h3>
+            <h3>Created On: {{trip_info.created_at}}</h3>
+            <h3>Created by: {{trip_info.user.first_name}}</h3>
+        </div>
+    </div>
+</body>
+</html>
